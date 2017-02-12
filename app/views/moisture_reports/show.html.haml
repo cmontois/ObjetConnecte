@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Value:
+  = @moisture_report.value
+
+= link_to 'Edit', edit_moisture_report_path(@moisture_report)
+\|
+= link_to 'Back', moisture_reports_path

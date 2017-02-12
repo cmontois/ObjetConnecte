@@ -1,0 +1,2 @@
+class MoistureReport < ApplicationRecord
+end
