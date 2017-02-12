@@ -1,5 +1,5 @@
 class MoistureSensor
   def get_value
-    `python #{Rails.root}/lib/scripts/moisture_sensor.py 0`
+    `python #{Rails.root}/lib/scripts/moisture_sensor.py 0`.gsub("\n", '').to_i
   end
 end

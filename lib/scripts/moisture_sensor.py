@@ -55,4 +55,4 @@ sensor = int(float(sys.argv[1]))
 try:
     print grovepi.analogRead(sensor)
 except IOError:
-    print IOError
+    print -1
