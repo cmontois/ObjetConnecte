@@ -52,8 +52,7 @@ import sys
 # SIG,NC,VCC,GND
 sensor = int(float(sys.argv[1]))
 
-while True:
-    try:
-        return grovepi.analogRead(sensor)
-    except IOError:
-        return -1
+try:
+    print grovepi.analogRead(sensor)
+except IOError:
+    print IOError
