@@ -1,0 +1,1 @@
+Dir["#{Rails.root}/lib/classes/*.rb"].each {|file| require file }
