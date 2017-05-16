@@ -1,7 +1,7 @@
 class MoistureReportGeneratorWorker
   include Sidekiq::Worker
 
-  def perform()
+  def perform
     MoistureReport.create(value: MoistureSensor.get_value)
 
     MoistureCheckerWorker.perform_async
