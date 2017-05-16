@@ -1,88 +1,52 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-//= require Chart.min.js
-var moistureData = [], moistureChart;
 
 function getMoistureStatus() {
     $.ajax('/api/moisture_reports', {
         success: function (data) {
-            data.forEach(function(d) {
-                moistureData.push({date: new Date(d.created_at), value: d.value});
-            });
-            updateMoistureChart()
+            updateMoistureChart(data)
         }
     })
 }
 
-function buildMoistureChart() {
-    moistureChart = new Chart(document.getElementById("moisture_chart"), {
-        type: 'line',
-        data: {
-            labels: moistureData.map(function (md) {
-                return md.date
-            }),
-            datasets: [{
-                label: 'Humidité',
-                backgroundColor: '#59ABE3',
-                borderColor: '#4183D7',
-                fill: false,
-                data: moistureData.map(function (md) {
-                    return md.value
-                })
-            }]
+
+function updateMoistureChart(data) {
+    console.log(data);
+    $.plot("#line-chart", [data.map(function(r) {
+        return [r.id, r.value]
+    })], {
+        grid: {
+            hoverable: true,
+            borderColor: "#f3f3f3",
+            borderWidth: 1,
+            tickColor: "#f3f3f3"
         },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'Humidité'
+        series: {
+            shadowSize: 0,
+            lines: {
+                show: true
             },
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Heure'
-                    },
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Pourcentage'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }]
+            points: {
+                show: true
             }
+        },
+        lines: {
+            fill: false,
+            color: ["#3c8dbc", "#f56954"]
+        },
+        yaxis: {
+            show: true
+        },
+        xaxis: {
+            show: true,
+            ticks: data.map(function(r) {
+                return [r.id, (new Date(r.created_at)).toLocaleTimeString()]
+            })
         }
     });
 }
 
-function updateMoistureChart() {
-    moistureChart.data.labels = moistureData.map(function (md) {
-        return md.date.getHours() + ':' + md.date.getMinutes() + ':' + md.date.getSeconds()
-    });
-    moistureChart.data.datasets[0].data = moistureData.map(function (md) {
-        return md.value
-    });
-    moistureChart.update()
-}
 
 $(document).ready(function () {
-    buildMoistureChart();
-    getMoistureStatus();
+    getMoistureStatus()
 });

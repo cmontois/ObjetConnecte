@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root to: 'static_pages#index'
+  root to: 'dashboard#index'
+
+  resources :dashboard, only: [:index]
 
   resources :moisture_reports, only: [:index, :show]
 
   namespace :api do
     resources :moisture_reports, only: [:index, :show]
-    get '/moisture' => 'moisture#show'
+    resources :moisture, only: [:index]
   end
 end

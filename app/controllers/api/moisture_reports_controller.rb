@@ -2,7 +2,7 @@ class Api::MoistureReportsController < ApplicationController
   before_action :set_moisture_report, only: [:show]
 
   def index
-    @moisture_reports = MoistureReport.all
+    @moisture_reports = MoistureReport.all.last(10)
 
     render json: @moisture_reports
   end

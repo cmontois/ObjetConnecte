@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="bg-green fontello-waves"></i>
+          <span class="text-green">Current moisture</span>
+        </h3>
+      </div>
+      <div class="box-body">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for :additional_scripts do %>
+  <%= javascript_include_tag 'index' %>
+<% end %>
