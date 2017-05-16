@@ -11,7 +11,7 @@ from grove_i2c_barometic_sensor_BMP180 import BMP085
 
 # Initialise the BMP085 and use STANDARD mode (default value)
 # bmp = BMP085(0x77, debug=True)
-bmp = BMP085(0x77, 1)
+bmp = BMP085(0x76, 1)
 
 # To specify a different operating mode, uncomment one of the following:
 # bmp = BMP085(0x77, 0)  # ULTRALOWPOWER Mode
