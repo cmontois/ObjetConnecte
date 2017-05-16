@@ -1,7 +1,6 @@
 class Api::MoistureController < ApplicationController
   def show
-    sensor = MoistureSensor.new
-    @moisture = MoistureReport.new(value: sensor.get_value)
+    @moisture = MoistureReport.new(value: MoistureSensor.get_value)
 
     render json: @moisture
   end
