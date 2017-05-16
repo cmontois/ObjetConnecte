@@ -1,9 +1,11 @@
 class MoistureCheckerWorker
+  include Sidekiq::Worker
+
   def perform
     if MoistureSensor.get_value < 30
-      PIPE_PIN.on
+      Pipe.start
     else
-      PIPE_PIN.off
+      Pipe.stop
     end
   end
 end
