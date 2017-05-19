@@ -160,16 +160,16 @@ def readBME280All(addr=DEVICE):
 def main():
 
   (chip_id, chip_version) = readBME280ID()
-  print "Chip ID     :", chip_id
-  print "Version     :", chip_version
+  # print "Chip ID     :", chip_id
+  # print "Version     :", chip_version
 
   temperature,pressure,humidity = readBME280All()
 
-  print "Temperature : ", temperature, "C"
-  print "Pressure : ", pressure, "hPa"
-  print "Humidity : ", humidity, "%"
+  # print "Temperature : ", temperature, "C"
+  # print "Pressure : ", pressure, "hPa"
+  # print "Humidity : ", humidity, "%"
 
-  print json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
+  # print json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
   return json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
 
 if __name__=="__main__":
