@@ -20,6 +20,7 @@
 #--------------------------------------
 import smbus
 import time
+import json
 from ctypes import c_short
 from ctypes import c_byte
 from ctypes import c_ubyte
@@ -167,6 +168,8 @@ def main():
   print "Temperature : ", temperature, "C"
   print "Pressure : ", pressure, "hPa"
   print "Humidity : ", humidity, "%"
+
+  print(json.dumps([{'temperature':temperature, 'pressure':pressure, 'humidity':humidity}]));
 
 if __name__=="__main__":
    main()
