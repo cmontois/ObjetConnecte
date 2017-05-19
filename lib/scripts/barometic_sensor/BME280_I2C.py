@@ -169,7 +169,8 @@ def main():
   print "Pressure : ", pressure, "hPa"
   print "Humidity : ", humidity, "%"
 
-  print(json.dumps([{'temperature':temperature, 'pressure':pressure, 'humidity':humidity}]));
+  # print(json.dumps([{'temperature':temperature, 'pressure':pressure, 'humidity':humidity}]))
+  return json.dumps([{'temperature':temperature, 'pressure':pressure, 'humidity':humidity}])
 
 if __name__=="__main__":
    main()
