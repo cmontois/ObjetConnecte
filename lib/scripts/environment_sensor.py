@@ -170,7 +170,11 @@ def main():
   # print "Humidity : ", humidity, "%"
 
   # print json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
-  return json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
+
+  return_info = [temperature, pressure, humidity ]
+
+  # return json.dumps({'temperature': temperature, 'pressure': pressure, 'humidity': humidity}, sort_keys=True, indent=4, separators=(',', ': '))
+  return json.dump(return_info)
 
 if __name__=="__main__":
    main()
