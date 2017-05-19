@@ -11,11 +11,8 @@ class EnvironmentSensor
         self.get_data['humidity']
     end
 
-    def self.get_data
+    private def self.get_data
         value = `python #{Rails.root}/lib/scripts/environment_sensor.py`.gsub("\n", '')
         JSON.parse(value)
     end
-
-    private :self.get_data
-
 end
