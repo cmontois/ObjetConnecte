@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
     get '/temperature' => 'temperature#show'
     get '/pressure' => 'pressure#show'
-    get '/air_humidity' => 'airHumidity#show'
+    get '/air_humidity' => 'air_humidity#show'
   end
 end
