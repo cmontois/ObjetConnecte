@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :moisture_reports, only: [:index, :show]
     get '/moisture' => 'moisture#show'
+
+    get '/temperature' => 'temperature#show'
+    get '/pressure' => 'pressure#show'
+    get '/air_humidity' => 'air_humidity#show'
   end
 end
