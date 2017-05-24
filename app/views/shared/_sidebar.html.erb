@@ -2,7 +2,7 @@
   <ul id="menu-showhide" class="topnav" style="height: auto; margin: -10px 0px 0px;">
     <li class="devider-title" style="text-align: left;">
       <h3 style="display: inline-block; float: none;">
-        <span style="display: inline-block; float: none;">Desain Kit Menu</span>
+        <span style="display: inline-block; float: none;">Menu</span>
       </h3>
     </li>
     <li style="text-align: left;">
@@ -13,9 +13,9 @@
     </li>
 
     <li style="text-align: left;">
-      <%= link_to moisture_reports_path, style: controller_name == 'moisture_reports' ? 'border-left:4px solid #5F9BDB; padding:0 0 0 16px;':nil, class: 'tooltip-tip tooltipster-disable' do %>
+      <%= link_to reports_path, style: controller_name == 'reports' ? 'border-left:4px solid #5F9BDB; padding:0 0 0 16px;':nil, class: 'tooltip-tip tooltipster-disable' do %>
           <i class="fontello-chart"></i>
-          <span style="display: inline-block; float: none;">Moisture reports</span>
+          <span style="display: inline-block; float: none;">Reports</span>
       <% end %>
     </li>
   </ul>

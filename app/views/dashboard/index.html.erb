@@ -1,18 +1,73 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-3">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title"><i class="bg-green fontello-waves"></i>
-          <span class="text-green">Current moisture</span>
+          <span class="text-green">Air humidity</span>
         </h3>
       </div>
       <div class="box-body">
-        <div class="loader"></div>
+        <div class="loader air_humidity_loader"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="bg-green fa fa-tint"></i>
+          <span class="text-green">Soil humidity</span>
+        </h3>
+      </div>
+      <div class="box-body">
+        <div class="loader soil_humidity_loader"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="bg-green icon-cloud"></i>
+          <span class="text-green">Air conditions</span>
+        </h3>
+      </div>
+      <div class="box-body">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td style="width:180px">
+                <strong>Pressure</strong>
+              </td>
+              <td>
+                <div id="pressure-bar">
+                  <div style="margin: 15px 0 0;" class="number-pb ">
+                    <div class="number-pb-shown sun"></div>
+                    <div class="number-pb-num"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+
+              <td>
+                <strong>Temperature</strong>
+              <td>
+                <div id="temperature-bar">
+                  <div style="margin: 15px 0 0;" class="number-pb">
+                    <div class="number-pb-shown"></div>
+                    <div class="number-pb-num"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <%= content_for :additional_scripts do %>
-  <%= javascript_include_tag 'index' %>
+    <%= javascript_include_tag 'index' %>
 <% end %>

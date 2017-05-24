@@ -6,13 +6,10 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :moisture_reports, only: [:index, :show]
+  resources :reports, only: [:index, :show]
 
   namespace :api do
-    resources :moisture_reports, only: [:index, :show]
-    get '/temperature' => 'temperature#show'
-    get '/pressure' => 'pressure#show'
-    get '/air_humidity' => 'air_humidity#show'
-    resources :moisture, only: [:index]
+    resources :sensors, only: [:index]
+    resources :reports, only: [:index]
   end
 end

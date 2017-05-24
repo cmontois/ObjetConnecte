@@ -2,12 +2,27 @@
 // All this logic will automatically be available in application.js.
 var running = false;
 
+var pressureBar = $('#pressure-bar .number-pb').NumberProgressBar({
+    style: 'basic',
+    min: 870,
+    max: 1085
+});
+
+var temperatureBar = $('#temperature-bar .number-pb').NumberProgressBar({
+    style: 'basic',
+    min: -20,
+    max: 100
+});
+
 function getMoistureStatus() {
     if (!running) {
         running = true;
-        $.ajax('/api/moisture', {
+        $.ajax('/api/sensors', {
             success: function (data) {
-                $('.loader').loader('setProgress', data.value);
+                $('.soil_humidity_loader').loader('setProgress', data.soil_humidity);
+                $('.air_humidity_loader').loader('setProgress', data.air_humidity);
+                pressureBar.reach(data.pressure);
+                temperatureBar.reach(data.temperature);
                 running = false;
             }
         })
