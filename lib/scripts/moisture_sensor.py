@@ -9,22 +9,17 @@
 
 '''
 ## License
-
 The MIT License (MIT)
-
 GrovePi for the Raspberry Pi: an open source platform for connecting Grove Sensors to the Raspberry Pi.
-Copyright (C) 2017  Dexter Industries
-
+Copyright (C) 2015  Dexter Industries
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -51,17 +46,13 @@ THE SOFTWARE.
 
 import time
 import grovepi
+import sys
 
 # Connect the Grove Moisture Sensor to analog port A0
 # SIG,NC,VCC,GND
-sensor = 0
+sensor = int(float(sys.argv[1]))
 
-while True:
-    try:
-        print(grovepi.analogRead(sensor))
-        time.sleep(.5)
-
-    except KeyboardInterrupt:
-        break
-    except IOError:
-        print ("Error")
+try:
+    print grovepi.analogRead(sensor)
+except IOError:
+    print -1

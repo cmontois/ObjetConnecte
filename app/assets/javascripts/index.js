@@ -21,8 +21,9 @@ function getMoistureStatus() {
             success: function (data) {
                 $('.soil_humidity_loader').loader('setProgress', data.soil_humidity);
                 $('.air_humidity_loader').loader('setProgress', data.air_humidity);
+                $('#Temperature').html(parseInt(data.temperature) + '°C');
                 pressureBar.reach(data.pressure);
-                temperatureBar.reach(data.temperature);
+                temperatureBar.reach(parseInt(data.temperature));
                 running = false;
             }
         })
@@ -31,15 +32,14 @@ function getMoistureStatus() {
 }
 
 $(document).ready(function () {
-
     $('.loader').loader({
         progress: 0,
         frontSpeed: 0.021,
-        frontColor: '#E33244',
         frontOpacity: 0.5,
-        backSpeed: 0.025,
-        backColor: '#E33244',
-        backOpacity: 0.2
+        frontColor: '#A6E3E9',
+        backSpeed: 12,
+        backColor: '#CBF1F5',
+        backOpacity: 1
     });
 
     getMoistureStatus();

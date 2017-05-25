@@ -4,7 +4,7 @@ class EnvironmentSensor
   end
 
   def self.get_pressure
-    self.get_data['pressure'].to_i
+    self.get_data['pressure'].to_f
   end
 
   def self.get_air_humidity
@@ -22,4 +22,7 @@ class EnvironmentSensor
     JSON.parse(value)
   end
 
+  def self.get_weather
+
+  end
 end

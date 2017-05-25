@@ -3,8 +3,8 @@ class CreateReports < ActiveRecord::Migration[5.0]
     create_table :reports do |t|
       t.float :temperature
       t.integer :soil_humidity
-      t.integer :air_humidty
-      t.integer :pressure
+      t.integer :air_humidity
+      t.float :pressure
 
       t.timestamps
     end
