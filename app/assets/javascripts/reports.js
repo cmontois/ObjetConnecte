@@ -13,11 +13,11 @@ function getMoistureStatus() {
 function updateMoistureChart(data) {
     console.log(data);
     $.plot("#line-chart",
-        [data.map(function (r) {
+        [{label: 'Soil', data: data.map(function (r) {
             return [r.id, r.soil_humidity]
-        }),data.map(function (r) {
+        })},{label: 'air', data: data.map(function (r) {
             return [r.id, r.air_humidity]
-        })], {
+        })}], {
             grid: {
                 hoverable: true,
                 borderColor: "#f3f3f3",

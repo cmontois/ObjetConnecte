@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.loader {
+    border-color: #3FC1C9;
+}
