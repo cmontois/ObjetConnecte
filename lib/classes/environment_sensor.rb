@@ -23,9 +23,8 @@ class EnvironmentSensor
   end
 
   def self.get_weather
-    presentPressure = self.get_pressure
+    # presentPressure = self.get_pressure
     time = Time.now
-    puts time
-    puts presentPressure
+    time
   end
 end
