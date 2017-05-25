@@ -22,4 +22,10 @@ class EnvironmentSensor
     JSON.parse(value)
   end
 
+  def self.get_weather
+    presentPressure = self.get_pressure
+    time = Time.now
+    puts time
+    puts presentPressure
+  end
 end
